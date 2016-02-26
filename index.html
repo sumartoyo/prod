@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <title>Production System</title>
+        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <div ng-controller="UiController">
+
+            <input style="display:none;" id="fileOpen" type="file" accept=".txt">
+    		<input style="display:none;" id="fileSave" type="file">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <h3>Input Facts</h3>
+                        <textarea class="form-control" ng-model="ifacts"></textarea>
+                    </div>
+                    <div class="col-xs-6">
+                        <h3>Input Rules</h3>
+                        <textarea class="form-control" ng-model="irules"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <h3>WMEs</h3>
+                        <p ng-if="wmes.length == 0">--</p>
+                        <p ng-repeat="wme in wmes track by $index">
+                            <b>W{{$index+1}}</b>: {{wme._wme}}
+                        </p>
+                        <h3>Rules</h3>
+                        <p ng-if="rules.length == 0">--</p>
+                        <p ng-repeat="rule in rules track by $index">
+                            <span style="white-space:pre"><b>R{{$index+1}}</b>: {{rule.raw}}</span>
+                        </p>
+                    </div>
+                    <div class="col-xs-6">
+                        <h3>Logs</h3>
+                        <p ng-if="logs.length == 0">--</p>
+                        <span ng-repeat="log in logs track by $index">
+                            {{log}} <br>
+                        </span>
+                    </div>
+                </div>
+                <div style="height:15px"></div>
+            </div>
+        </div>
+
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+        <script src="app/_modules/parser.js"></script>
+
+        <script src="app/app.module.js"></script>
+        <script src="app/_services/file.service.js"></script>
+        <script src="app/_services/run.service.js"></script>
+        <script src="app/_services/window.service.js"></script>
+        <script src="app/ui/ui.js"></script>
+    </body>
+</html>

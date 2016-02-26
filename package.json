@@ -1,0 +1,14 @@
+{
+  "name": "prod",
+  "main": "index.html",
+  "window": {
+    "toolbar": false,
+    "width": 1024,
+    "min_width": 1024,
+    "height": 600,
+    "min_height": 600
+  },
+  "dependencies": {
+    "bluebird": "^3.3.1"
+  }
+}

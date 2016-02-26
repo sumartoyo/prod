@@ -1,0 +1,10 @@
+textarea.form-control {
+    height: 500px;
+    resize: none;
+    font-family: sans-serif;
+    tab-size : 4;
+}
+
+.form-control[readonly] {
+	background-color: #fefefe;
+}
